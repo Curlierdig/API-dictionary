@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from utils import get_definition, get_synonyms, get_youtube_video
+from utils import get_definition, get_synonyms, get_youtube_videos
 
 app = Flask(__name__)
 
@@ -9,7 +9,7 @@ def index():
         word = request.form.get("word")
         definition = get_definition(word)
         synonyms = get_synonyms(word)
-        youtube_url = get_youtube_video(word)
+        youtube_url = get_youtube_videos(word)
         return render_template("index.html", word=word, definition=definition, synonyms=synonyms, youtube_url=youtube_url)
     return render_template("index.html")
 
