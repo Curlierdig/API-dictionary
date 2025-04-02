@@ -10,7 +10,7 @@ def index():
         definition = get_definition(word)
         synonyms = get_synonyms(word)
         youtube_url = get_youtube_video(word)
-        return render_template("result.html", word=word, definition=definition, synonyms=synonyms, youtube_url=youtube_url)
+        return render_template("index.html", word=word, definition=definition, synonyms=synonyms, youtube_url=youtube_url)
     return render_template("index.html")
 
 if __name__ == "__main__":

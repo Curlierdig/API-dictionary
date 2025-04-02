@@ -1,14 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Diccionario Interactivo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DictionaryWeb</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 <body>
-    <h1>Diccionario Interactivo</h1>
-    <form method="POST" action="/">
-        <label for="word">Ingresa una palabra:</label>
-        <input type="text" id="word" name="word" required>
-        <button type="submit">Buscar</button>
-    </form>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <div class="logo-img">DW</div>
+                    <div class="logo-text">DictionaryWeb</div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Discover the meaning of each <span>word</span></h1>
+                
+                <div class="search-container">
+                    <form method="POST" action="/" class="search-box">
+                        <input type="text" class="search-input" name="word" placeholder="Write a word..." required>
+                        <button type="submit" class="search-btn">Search</button>
+                    </form>
+                </div>
+                
+                {% if word %} 
+                <div class="result-container">
+                    <h2 class="word">{{ word }}</h2>
+                    
+                    <h3>Meaning</h3>
+                    <p>{{ definition }}</p>
+                    
+                    <h3>Synonyms</h3>
+                    <p>{{ synonyms }}</p>
+                    
+                    <h3>Video</h3>
+                    <p><a href="{{ youtube_url }}" target="_blank">Related videos</a></p>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+    </main>
 </body>
 </html>
